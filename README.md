@@ -1,6 +1,6 @@
 # Face Recognition System
 
-This repository was prepared for my university graduation project. This project was awarded support under the 2023 second-term 2209-A Üniversite Öğrencileri Araştırma Projeleri Destekleme Programı.
+This repository was prepared for my university graduation project. This project was awarded support under the 2023 second-term 2209-A - Research Project Support Programme for Undergraduate Students.
 
 Nowadays, deep learning models and artificial intelligence technologies have made significant progress in the field of facial recognition, achieving high accuracy levels. In this context, they hold 
 great potential for future security systems. In this project, a versatile facial recognition system has been developed using deep learning models. The project aims to make personnel attendance control
