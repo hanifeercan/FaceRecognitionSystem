@@ -1,7 +1,8 @@
 import firebase_admin
-from firebase_admin import credentials,firestore
+from firebase_admin import credentials,firestore,storage
 from datetime import datetime
 import pytz
+import uuid
 
 credentialData = credentials.Certificate("firebase.json")
 firebase_admin.initialize_app(credentialData, {
@@ -18,6 +19,11 @@ def isStaff(name,email):
     for document in documents:
         if(ilk_harf_kucult(document.id) == name):
             return True
+            
+    bucket = storage.bucket()
+    date_folder = datetime.now().strftime("%Y-%m-%d") 
+    blob = bucket.blob(f'{email}/unknown/{date_folder}/{str(uuid.uuid4())}')
+    blob.upload_from_filename("C:/Users/hanif/OneDrive/Masaüstü/face_recognition/kamera_goruntusu.jpg")
     return False
 
 def ilk_harf_kucult(veri):
