@@ -79,15 +79,16 @@ def face_recognition():
                 print(predict_names)
                 print(class_probability)
 
+                isStaff = db.isStaff(predict_names[0],email)
+                
                 if class_probability > 0.8:
-                    isStaff = db.isStaff(predict_names[0],email)
                     if isStaff:
                         db.addFirebaseLoginOrOut(predict_names[0],email)
                         kisiler.append(predict_names[0])
                     else:
-                        kisiler.append("Known")
+                        kisiler.append("Unknown")
                 else:
-                    kisiler.append("Known")
+                    kisiler.append("Unknown")
 
             return jsonify({'Kisiler': kisiler}),200
     except Exception as e:
