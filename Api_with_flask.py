@@ -3,7 +3,7 @@ from PIL import Image
 from numpy import asarray
 from numpy import expand_dims
 import cv2
-import firebase_deneme as db
+import firebase_operations as db
 from mtcnn import MTCNN
 import numpy as np
 import pickle
