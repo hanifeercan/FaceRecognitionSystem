@@ -3,7 +3,6 @@ from PIL import Image
 from numpy import asarray
 from numpy import expand_dims
 import cv2
-import firebase_deneme as db
 from mtcnn import MTCNN
 import numpy as np
 import pickle
@@ -64,11 +63,7 @@ def face_recognition():
                 print(class_probability)
 
                 if class_probability > 0.8:
-                    isStaff = db.isStaff(predict_names[0])
-                    if isStaff:
-                        kisiler.append(predict_names[0])
-                    else:
-                        kisiler.append("Unknown")
+                    kisiler.append(predict_names[0])
                 else:
                     kisiler.append("Unknown")
 
