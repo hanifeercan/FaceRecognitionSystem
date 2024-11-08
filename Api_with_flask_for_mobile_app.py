@@ -31,14 +31,14 @@ def face_recognition():
 
     try:
         if 'dosya' not in request.files:
-            return jsonify({'Hata1': 'Dosya yok'}), 400
+            return jsonify({'errorMessage': 'Dosya yok'}), 400
         file = request.files['dosya']
         if file.filename == '':
-            return jsonify({'Hata2': "Seçili dosya yok"}),400
+            return jsonify({'errorMessage': "Seçili dosya yok"}),400
         if file:
             img_stream = file.stream.read()
             if not img_stream:
-                return jsonify({'Hata3': "Dosya boş"}), 400
+                return jsonify({'errorMessage': "Dosya boş"}), 400
             
             nparr = np.frombuffer(img_stream, np.uint8)
             img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
@@ -67,9 +67,9 @@ def face_recognition():
                 else:
                     kisiler.append("Unknown")
 
-            return jsonify({'Kisiler': kisiler}),200
+            return jsonify({'peopleNames': kisiler}),200
     except Exception as e:
-        return jsonify({'Hata': str(e)}), 400
+        return jsonify({'errorMessage': str(e)}), 400
 
 def extract_embeddings(model,face_pixels):
     face_pixels = face_pixels.astype('float32')       
