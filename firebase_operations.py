@@ -17,7 +17,7 @@ def isStaff(name,email):
     documents = collection_ref.get()
 
     for document in documents:
-        if(ilk_harf_kucult(document.id) == name):
+        if(document.id) == name:
             return True
             
     bucket = storage.bucket()
@@ -25,14 +25,6 @@ def isStaff(name,email):
     blob = bucket.blob(f'{email}/unknown/{date_folder}/{str(uuid.uuid4())}')
     blob.upload_from_filename("C:/Users/hanif/OneDrive/Masaüstü/face_recognition/kamera_goruntusu.jpg")
     return False
-
-def ilk_harf_kucult(veri):
-    string_veri = str(veri)
-    if string_veri:
-        sonuc = string_veri[0].lower() + string_veri[1:]
-    else:
-        sonuc = string_veri
-    return sonuc   
 
 def isLoginOrOut2(doc_ref,name,date):
     times_ref = doc_ref.collection(date)
